@@ -41,8 +41,10 @@ class Recipe extends Component {
         <ListGroup>
           {ingredientComponents}
         </ListGroup>
-        <Button bsStyle="danger" onClick={()=>{this.props.removeRecipe(this.props.recipeIndex)}}>Delete</Button>
+        <div class="row">
+        <Button className="edit-btn" bsStyle="danger" onClick={()=>{this.props.removeRecipe(this.props.recipeIndex)}}>Delete</Button>
         <EditRecipeModal editRecipe={this.props.editRecipe}/>
+        </div>
       </Panel>
 
     )
