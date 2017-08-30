@@ -35,7 +35,6 @@ class MyModal extends Component {
   }
 }
 
-
 export class AddRecipeModal extends MyModal {
   render() {
     return(

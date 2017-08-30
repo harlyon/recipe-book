@@ -49,7 +49,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <Book recipeObject={this.state.recipes}/>
+        <Book recipeObject={this.state.recipes} editRecipe={this.editRecipe} removeRecipe={this.removeRecipe}/>
         <AddRecipeModal />
       </div>
     );

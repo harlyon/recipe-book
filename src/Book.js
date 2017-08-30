@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import {Well, Panel, Accordion, ListGroup, ListGroupItem} from 'react-bootstrap'
+import {Well, Panel, Accordion, ListGroup, ListGroupItem, Button} from 'react-bootstrap'
+import {EditRecipeModal} from './Modals.js'
 
 
 class Book extends Component {
@@ -9,7 +10,7 @@ class Book extends Component {
       var name = this.props.recipeObject[i].name
       var ingredients = this.props.recipeObject[i].ingredients
       recipeComponents.push(
-        <Recipe name={name} ingredients={ingredients} eventKey={i+1}/>
+        <Recipe name={name} ingredients={ingredients} recipeIndex={i} eventKey={i+1} editRecipe={this.props.editRecipe} removeRecipe={this.props.removeRecipe}/>
       )
     }
     return(
@@ -40,6 +41,8 @@ class Recipe extends Component {
         <ListGroup>
           {ingredientComponents}
         </ListGroup>
+        <Button bsStyle="danger" onClick={()=>{this.props.removeRecipe(this.props.recipeIndex)}}>Delete</Button>
+        <EditRecipeModal editRecipe={this.props.editRecipe}/>
       </Panel>
 
     )
