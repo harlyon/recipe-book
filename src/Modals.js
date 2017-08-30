@@ -39,23 +39,26 @@ class MyModal extends Component {
 export class AddRecipeModal extends MyModal {
   render() {
     return(
-      <Modal>
+      <div>
+      <Modal show={this.state.showModal} onHide={this.close}>
         <Modal.Header closeButton>Add Recipe</Modal.Header>
         <Modal.Body>
           <form>
             <FormGroup>
               <ControlLabel>Recipe:</ControlLabel>
               <FormControl type="text" placeholder="Recipe Name" inputRef={(ref)=>{this.recipeName = ref}}></FormControl>
-              <ControlLabel>Ingredients:</ControlLabel>
+              <ControlLabel className="ing-label">Ingredients:</ControlLabel>
               <FormControl componentClass="textarea" placeholder="Enter Ingredients, Comma Seperated" inputRef={(ref)=>{this.ingredients=ref}}></FormControl>
             </FormGroup>
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button>Add Recipe</Button>
+          <Button bsStyle="primary">Add Recipe</Button>
           <Button onClick={this.close}>Close</Button>
         </Modal.Footer>
       </Modal>
+      <Button bsStyle="primary" onClick={this.open}>Add Recipe</Button>
+    </div>
     )
   }
 }
@@ -75,7 +78,7 @@ export class EditRecipeModal extends MyModal {
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button bsStyle="rpimary">Edit Recipe</Button>
+          <Button bsStyle="primary">Edit Recipe</Button>
           <Button onClick={this.close}>Close</Button>
         </Modal.Footer>
       </Modal>

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {AddRecipeModal, EditRecipeModal} from './Modals.js'
+import {Button} from 'react-bootstrap'
+import Book from './Book.js'
 
 class App extends Component {
   constructor() {
@@ -47,7 +49,8 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-
+        <Book recipeObject={this.state.recipes}/>
+        <AddRecipeModal />
       </div>
     );
   }
