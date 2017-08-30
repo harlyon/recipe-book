@@ -52,7 +52,10 @@ export class AddRecipeModal extends MyModal {
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button bsStyle="primary">Add Recipe</Button>
+          <Button bsStyle="primary" onClick={()=>{
+            this.props.addRecipe(this.recipeName.value, parseIngredients(this.ingredients.value));
+            this.close()
+          }}>Add Recipe</Button>
           <Button onClick={this.close}>Close</Button>
         </Modal.Footer>
       </Modal>
@@ -71,14 +74,17 @@ export class EditRecipeModal extends MyModal {
           <form>
             <FormGroup>
               <ControlLabel>Recipe:</ControlLabel>
-              <FormControl type="text" placeholder="Recipe Name" inputRef={(ref)=>{this.recipeName = ref}} value={this.props.name}></FormControl>
+              <FormControl type="text" placeholder="Recipe Name" inputRef={(ref)=>{this.recipeName = ref}} defaultValue={this.props.name}></FormControl>
               <ControlLabel className="ing-label">Ingredients:</ControlLabel>
-              <FormControl componentClass="textarea" placeholder="Enter Ingredients, Comma Seperated" inputRef={(ref)=>{this.ingredients=ref}} value={this.props.ingredients}></FormControl>
+              <FormControl componentClass="textarea" placeholder="Enter Ingredients, Comma Seperated" inputRef={(ref)=>{this.ingredients=ref}} defaultValue={this.props.ingredients.join(', ')}></FormControl>
             </FormGroup>
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button bsStyle="primary" onClick={()=>{this.props.editRecipe()}}>Edit Recipe</Button>
+          <Button bsStyle="primary" onClick={()=>{
+            this.props.editRecipe(this.props.recipeIndex, this.recipeName.value, parseIngredients(this.ingredients.value))
+            this.close()
+          }}>Edit Recipe</Button>
           <Button onClick={this.close}>Close</Button>
         </Modal.Footer>
       </Modal>

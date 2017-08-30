@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import {AddRecipeModal, EditRecipeModal} from './Modals.js'
-import {Button} from 'react-bootstrap'
+import {AddRecipeModal} from './Modals.js'
 import Book from './Book.js'
 
 class App extends Component {
@@ -50,7 +49,7 @@ class App extends Component {
     return (
       <div className="container">
         <Book recipeObject={this.state.recipes} editRecipe={this.editRecipe} removeRecipe={this.removeRecipe}/>
-        <AddRecipeModal />
+        <AddRecipeModal addRecipe={this.addRecipe}/>
       </div>
     );
   }
