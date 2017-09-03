@@ -48,6 +48,8 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+        <h1 className="text-center">Recipe Book</h1>
+        <p className="text-center">Store your recipes here! Once saved, you can come back later to see your recipes.</p>
         <Book recipeObject={this.state.recipes} editRecipe={this.editRecipe} removeRecipe={this.removeRecipe}/>
         <AddRecipeModal addRecipe={this.addRecipe}/>
       </div>
